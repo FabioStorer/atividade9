@@ -1,9 +1,16 @@
 import express from 'express';
 import { Express } from 'express';
-import 'dotenv/config.js';
+import dotenv from 'dotenv';
 import country_router from './routes/country_route';
+import cors from 'cors';
+
+dotenv.config({
+    path: `.env.${process.env.NODE_ENV}`
+});
 
 const app: Express = express();
+
+app.use(cors())
 
 app.use(express.json());
 
